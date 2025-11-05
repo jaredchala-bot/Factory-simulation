@@ -410,7 +410,8 @@ def finanzas_crear_fondo_emergencia(estado):
         estado["Caja disponible"] -= 50000
         estado["Monto emergencia"] = 50000 
         estado["Fondo emergencia"] = True
-    else:
+    
+    elif estado["Caja disponible"] == 0:
         estado["Deuda pendiente"] += 56000
         estado["Monto emergencia"] = 50000 
         estado["Fondo emergencia"] = True
