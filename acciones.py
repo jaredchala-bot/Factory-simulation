@@ -406,6 +406,14 @@ def finanzas_crear_fondo_emergencia(estado):
     - Si no hay dinero, debes pedir un préstamo al 12% de interes
         • Es decir, adquieres el fondo de emergencia, y te haces una deuda de S/ 56,000
     """
+    if estado["Caja disponible"] >= 50000:
+        estado["Caja disponible"] -= 50000
+        estado["Monto emergencia"] = 50000 
+        estado["Fondo emergencia"] = True
+    else:
+        estado["Deuda pendiente"] += 56000
+        estado["Monto emergencia"] = 50000 
+        estado["Fondo emergencia"] = True
     return estado
 
 def finanzas_no_hacer_nada(estado):
