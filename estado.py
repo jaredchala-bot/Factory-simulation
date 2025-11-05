@@ -9,7 +9,7 @@ def calcular_estado_inicial():
     precio_venta = 4.5
     return {
         # Indicadores financieros y operativos
-        "Caja disponible":                   50000,
+        "Caja disponible":                   30000,
         "Inventario":                        0,
         "Pedidos por atender":               0,
         "Unidades vendidas":                 0,
