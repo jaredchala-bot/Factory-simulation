@@ -1,6 +1,9 @@
 # cartas.py
 
 def aplicar_carta(numero, estado):
+    #Comprobacion de cartas bloqueadas:
+    if numero in estado["Cartas bloqueadas"]:
+        return estado
     # Carta 1: Dia tranquilo:
     # No ocurre nada malo.
     if numero == 1:
@@ -65,7 +68,7 @@ def aplicar_carta(numero, estado):
     elif numero == 10:
         return estado
 
- # Carta 11: Multa ambiental
+    # Carta 11: Multa ambiental
     #   - Aumentan “Multas e indemnizaciones” en +5000.
     #   - Reputacion del mercado −1 nivel.
     elif numero == 11:

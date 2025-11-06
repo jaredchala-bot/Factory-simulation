@@ -409,14 +409,13 @@ def finanzas_crear_fondo_emergencia(estado):
     if estado["Fondo emergencia"] == False:
         if estado["Caja disponible"] >= 50000:
             estado["Caja disponible"] -= 50000
-            estado["Monto emergencia"] = 50000 
-            estado["Fondo emergencia"] = True
-        
         else:
+            estado["Deuda pendiente"] += int((50000 - estado["Caja disponible"])*1.12)
             estado["Caja disponible"] = 0
-            estado["Deuda pendiente"] += (50000 - estado["Caja disponible"])*1.2
-            estado["Monto emergencia"] = 50000 
-            estado["Fondo emergencia"] = True
+        
+        estado["Monto emergencia"] = 50000 
+        estado["Fondo emergencia"] = True
+        estado["Cartas bloqueadas"].update({4,6,7,13,38})
     return estado
 
 def finanzas_no_hacer_nada(estado):
